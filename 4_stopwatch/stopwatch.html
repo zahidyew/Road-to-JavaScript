@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../tempStyle.css">
+        <title>4.Stopwatch</title>
+        <style>
+            .stopwatch {
+                display: inline-block;
+                /* background-color: white; */
+                border: 1px solid #eee;
+                padding: 5px;
+                margin: 5px;
+            }
+        
+            .stopwatch span {
+                font-weight: bold;
+                display: block;
+            }
+        
+            .stopwatch a {
+                padding-left: 8px;
+                padding-right: 8px;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>4. Stopwatch</h1>
+        <div>
+            <div class="stopwatch" id="sw"></div>
+            <br>
+            <div class="stopwatch" id="timer">Timer</div>
+
+        </div>
+        <script src="stopwatch.js"></script>
+        <script src="timer.js"></script>
+        <!-- <script>
+            var elems = document.getElementsByClassName("stopwatch");
+            new Stopwatch(elems);
+        </script> -->
+    </body>
+</html>

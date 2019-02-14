@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>1. Rando</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../tempStyle.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Rando</h1>
+        <div>
+            <select name="files" id="files">
+                <option value="" style="display:none">Program</option>
+                <option>reverseString</option>
+                <option>countVowel</option>
+                <option>fizzBuzz</option>
+                <option>palindrome</option>
+                <option>removingDuplicates</option>
+            </select>
+            <br><br>
+        </div>
+        <div class="content" id="div1">            
+                <input type="text" id="word" placeholder="text">
+                <br>
+                <button type="button" value="Submit" id="submit">Submit</button>          
+        </div>
+        <br>
+        <div class="content" id="main">
+            <!-- <script src="reverseString.js"></script> -->
+        </div>
+
+        <script>
+            var selected = document.querySelector('#files');
+
+            function loadJavaScript() {
+                var myindex = selected.selectedIndex;
+                var myvalue = selected.options[myindex].value;
+                var myscript = myvalue + ".js";
+
+                $.getScript(myscript);
+
+                /* var content = document.getElementById('main');
+                content.innerText = myvalue;  */
+            }
+
+            selected.addEventListener("change", loadJavaScript);
+        </script>
+    </body>
+</html>

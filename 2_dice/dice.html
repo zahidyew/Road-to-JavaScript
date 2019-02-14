@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2. Dice</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../tempStyle.css">
+    </head>
+    <body>
+        <h1>2. Dice</h1>
+        <div>
+            <div id="content1"></div>
+            <div id="content2"></div>
+            <div id="content3"></div>
+            <button type="submit" id="generate">Roll Dice</button>
+        </div>
+        <script>
+            var writeTo1 = document.getElementById('content1');
+            var writeTo2 = document.getElementById('content2');
+            var writeTo3 = document.getElementById('content3');
+            var button = document.getElementById('generate');
+
+            function generateNumber() { 
+                var num1 = Math.floor((Math.random() * 6) + 1);
+                var num2 = Math.floor((Math.random() * 6) + 1);
+                var totals = num1 + num2;
+
+                writeTo1.innerText = "Dice 1: " + num1;
+                writeTo2.innerText = "Dice 2: " + num2;
+                writeTo3.innerText = "Totals: " + totals;              
+            }
+            button.addEventListener('click', generateNumber);
+        </script>
+    </body>
+</html>

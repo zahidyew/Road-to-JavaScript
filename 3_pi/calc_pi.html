@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../tempStyle.css">
+        <title>3.Calculate Pi</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>3. Calculate Pi</h1>
+        <div>
+            <div id="content1"></div>
+            <input type="number" id="deciPlace" placeholder="pi to the nth place">
+            <br>
+            <button type="button" value="Submit" id="calc">Calculate Pi</button>
+        </div>
+        <script>
+            var button = document.getElementById('calc');
+            var writeTo1 = document.getElementById('content1');
+
+            function calculatePi () {
+                var nthPlace = document.getElementById('deciPlace').value;
+
+                var pi = 16 * Math.atan(1/5) - 4 * Math.atan(1/239);
+
+                if(nthPlace > 16 || !nthPlace) {
+                    pi = pi.toFixed(16);
+                }
+                else
+                    pi = pi.toFixed(nthPlace);
+                //pi = pi.toFixed(decimalPlace.target.myParam);
+
+                writeTo1.innerText = pi;
+            }
+            button.addEventListener('click', calculatePi);
+            //button.myParam = 11;
+        </script>
+    </body>
+</html>

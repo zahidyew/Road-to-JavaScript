@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../tempStyle.css">
+        <meta charset="UTF-8">
+        <title>Random Number Generator</title>
+    </head>
+    <body>
+        <h1>Random Number Generator</h1>
+        <div>
+            <div id="content1"></div>
+            <input type="number" id="min" placeholder="min">
+            <input type="number" id="max" placeholder="max">
+            <br>
+            <button type="button" id="generate">Generate Number</button>
+        </div>
+        <script>
+            var button  = document.getElementById('generate'),
+                writeTo = document.getElementById('content1'),
+                minElement  = document.getElementById('min'),
+                maxElement  = document.getElementById('max');
+                
+            function generateNumber () {
+                var number,
+                    min = parseInt(minElement.value),
+                    max = parseInt(maxElement.value);
+
+                number = Math.floor(Math.random() * (max - min + 1) + min);
+                writeTo.innerText = number;
+            }            
+            button.addEventListener('click', generateNumber);
+        </script>
+    </body>
+</html>
