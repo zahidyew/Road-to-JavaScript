@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>7. Discount Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../tempStyle.css">
+</head>
+<body>
+    <div id="main">
+        <div id="content">
+            <h1>7. Discount Calculator</h1>
+            <input type="number" id="price" placeholder="Price">
+            <input type="number" id="discount" placeholder="%">
+            <br>
+            <button type="button" id="calc">Calculate</button>
+        </div>
+        <div id="writeTo"></div>
+    </div>
+    <script>
+        var writeTo = document.getElementById('writeTo');
+        var button  = document.getElementById('calc');
+        var priceElem = document.getElementById('price')
+        var discountElem = document.getElementById('discount')
+        var result;
+
+        function calculateDiscount() {
+            var price = parseFloat (priceElem.value);
+            var discount = parseFloat (discountElem.value);
+
+            result = price * ((100 - discount) / 100);
+            writeTo.innerText = result.toFixed(2);
+        }
+        button.addEventListener('click', calculateDiscount);
+
+        //binding key, mainly enter to the calc button
+        document.onkeydown = function (key) {
+            key = key || window.event;
+            switch (key.which || key.keyCode) {
+                case 13: //13 is ASCII for Enter
+                    calculateDiscount();
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

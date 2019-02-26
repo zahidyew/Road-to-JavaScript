@@ -26,21 +26,3 @@ function fizzBuzz() {
 var printThis = fizzBuzz();
 content.innerText = printThis;
 
-
-/* function pressed() {
-    var printThis = fizzBuzz();
-    content.innerText = printThis;
-}
-
-var button = document.getElementById('submit');
-button.addEventListener('click',pressed);
-
-document.onkeydown = function (key) {
-    key = key || window.event;
-    switch (key.which || key.keyCode) {
-        case 13: //ASCII foe Enter
-            pressed();
-            break;
-    }
-} */
-

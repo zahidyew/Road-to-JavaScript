@@ -4,32 +4,46 @@
     <head>
         <link rel="stylesheet" type="text/css" href="../tempStyle.css">
         <meta charset="UTF-8">
-        <title>Random Number Generator</title>
+        <title>5. Random Number Generator</title>
     </head>
     <body>
-        <h1>Random Number Generator</h1>
+        <h1>5. Random Number Generator</h1>
         <div>
-            <div id="content1"></div>
             <input type="number" id="min" placeholder="min">
             <input type="number" id="max" placeholder="max">
             <br>
             <button type="button" id="generate">Generate Number</button>
+            <div id="content1"></div>
         </div>
         <script>
-            var button  = document.getElementById('generate'),
-                writeTo = document.getElementById('content1'),
-                minElement  = document.getElementById('min'),
-                maxElement  = document.getElementById('max');
+            var button      = document.getElementById ('generate'),
+                writeTo     = document.getElementById ('content1'),
+                minElement  = document.getElementById ('min'),
+                maxElement  = document.getElementById ('max');
                 
             function generateNumber () {
-                var number,
-                    min = parseInt(minElement.value),
-                    max = parseInt(maxElement.value);
+                var number;
+                if (minElement.value.length == 0)
+                    var min = 1;
+                else 
+                    var min = parseInt(minElement.value);
+                if (maxElement.value.length == 0)
+                    var max = 999999;
+                else 
+                    var max = parseInt(maxElement.value);
 
                 number = Math.floor(Math.random() * (max - min + 1) + min);
                 writeTo.innerText = number;
             }            
-            button.addEventListener('click', generateNumber);
+            button.addEventListener ('click', generateNumber);
+            document.onkeydown = function (key) {
+                key = key || window.event;
+                switch (key.which || key.keyCode) {
+                    case 13: //13 is ASCII for Enter
+                        generateNumber ();
+                        break;
+                }
+            }
         </script>
     </body>
 </html>

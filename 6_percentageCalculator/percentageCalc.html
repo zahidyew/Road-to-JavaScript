@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../tempStyle.css">
+        <title>6. Percentage Calculator</title>
+    </head>
+    <body>
+        <div>
+            <h1>6. Percentage Calculator</h1>
+            <div id="content">
+                <input type="number" id="value" placeholder="number">
+                <input type="number" id="percentage" placeholder="%">
+                <input type="number" id="decimal" placeholder="decimal place (optional)">
+                <br>
+                <button type="button" value="submit" id="calc">Calculate</button>
+            </div>
+            <div id="writeTo"></div>
+        </div>
+        <script>
+            var button      = document.getElementById ('calc'),
+                writeTo     = document.getElementById ('writeTo'),
+                valueElem   = document.getElementById ('value'),
+                percentElem = document.getElementById ('percentage'),
+                decimalElem = document.getElementById ('decimal');
+
+            function calculate () {
+                var value   = parseFloat (valueElem.value),
+                    percent = parseFloat (percentElem.value),
+                    decimal = parseInt (decimalElem.value),
+                    result;
+
+                if (!decimal)
+                    decimal = 2;
+                else if (decimal > 10)
+                    decimal = 10;
+
+                result = value * (percent / 100);
+                result = result.toFixed (decimal);
+                writeTo.innerText = result;
+            }
+            button.addEventListener ('click', calculate);
+            document.onkeydown = function (key) {
+                key = key || window.event;
+                switch (key.which || key.keyCode) {
+                    case 13: //13 is ASCII for Enter
+                        calculate ();
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
