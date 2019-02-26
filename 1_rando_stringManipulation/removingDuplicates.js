@@ -29,3 +29,5 @@ function removeDuplicates (anArray) {
 }
 
 content.innerText = anArray + " after removing duplicates become " + removeDuplicates(anArray);
+
+///test
